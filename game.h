@@ -1,7 +1,7 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include <bits/stdc++.h>
+#include <vector>
 
 struct Node;
 struct GameState;
@@ -218,7 +218,7 @@ void inShuffle(GameState& gs) {
 
 void oddEvenShuffle(GameState& gs) {
     // collect odd indices then even indices from discard head->tail
-    vector<Node*> odd, even;
+    std::vector<Node*> odd, even;
     int idx = 1;
     for (Node* cur = gs.discard_pile_.head_; cur; cur = cur->next, ++idx) {
         if (idx % 2) odd.push_back(cur); else even.push_back(cur);
@@ -281,4 +281,3 @@ void GameController::finish() {
 int GameController::queryScore() { return (int)game_state_.score; }
 
 #endif // GAME_H
-
